@@ -26,7 +26,11 @@ struct RegisterView: View {
             Text("Crie sua conta no VoaVibe")
                 .font(.title)
                 .fontWeight(.semibold)
+                .foregroundColor(Color("azul")) // Cor para o título
                 .multilineTextAlignment(.center)
+                .lineLimit(2) // Limita a linha do título para evitar corte
+                .padding(.horizontal, 30) // Garantir que o título tenha espaço suficiente
+                .minimumScaleFactor(0.5) // Diminui o tamanho da fonte, se necessário, para ajustar ao espaço
             
             // Formulário
             VStack(spacing: 15) {
@@ -53,29 +57,54 @@ struct RegisterView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 30)
                 
-                // Preferências Iniciais
+                // Melhorando a escolha de preferências com botões personalizados
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Preferência de viagem:")
                         .font(.headline)
+                        .foregroundColor(Color(.white)) // Cor laranja para o texto
                         .padding(.horizontal, 30)
-                    Picker("Preferência de viagem", selection: $selectedPreference) {
-                        ForEach(preferences, id: \.self) { preference in
-                            Text(preference)
+                        .lineLimit(1) // Evita que o texto do título quebre em várias linhas
+                        .minimumScaleFactor(0.8) // Ajuste de escala do título se for longo
+                    
+                    // ScrollView horizontal com botões para cada opção
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            ForEach(preferences, id: \.self) { preference in
+                                Button(action: {
+                                    selectedPreference = preference
+                                }) {
+                                    Text(preference)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(selectedPreference == preference ? .white : Color("azul"))
+                                        .padding(.horizontal, 16) // Ajuste no padding horizontal
+                                        .padding(.vertical, 12) // Ajuste no padding vertical
+                                        .frame(minWidth: 140, maxWidth: .infinity, minHeight: 50) // Largura mínima e altura para evitar corte
+                                        .background(selectedPreference == preference ? Color("laranja") : Color.white)
+                                        .cornerRadius(25)
+                                        .shadow(color: selectedPreference == preference ? Color("azul").opacity(0.5) : Color.clear, radius: 10, x: 0, y: 5)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 25)
+                                                .stroke(Color("azul"), lineWidth: selectedPreference == preference ? 0 : 2)
+                                        )
+                                        .scaleEffect(selectedPreference == preference ? 1.05 : 1) // Animação de escala ao selecionar
+                                        .animation(.spring(), value: selectedPreference) // Animação suave
+                                }
+                            }
                         }
+                        .padding(.horizontal, 30)
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .padding(.horizontal, 30)
                 }
             }
             
             // Botão de Cadastro
             Button(action: handleRegistration) {
                 Text("Cadastrar")
+                    .textCase(.lowercase)
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(Color("azul")) // Cor azul para o botão
                     .cornerRadius(10)
                     .padding(.horizontal, 30)
                     .shadow(radius: 5)
@@ -83,9 +112,9 @@ struct RegisterView: View {
             
             Spacer()
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color("Beige"), Color("LightBlue")]),
+        .background(LinearGradient(gradient: Gradient(colors: [Color("amareloEnergizante")]),
                                    startPoint: .top,
-                                   endPoint: .bottom))
+                                   endPoint: .bottom)) // Fundo amarelo energizante
         .ignoresSafeArea()
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Cadastro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
@@ -132,3 +161,4 @@ struct RegisterView_Previews: PreviewProvider {
         RegisterView()
     }
 }
+

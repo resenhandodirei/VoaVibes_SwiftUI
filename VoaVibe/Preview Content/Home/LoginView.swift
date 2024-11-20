@@ -14,89 +14,111 @@ struct LoginView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 16) {
                 Spacer()
                 
                 // Título
                 Text("Bem-vindo ao VoaVibe")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
+                    .font(.title)
+                    .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.azul)
                 
                 // Subtítulo
                 Text("Faça login para planejar suas viagens")
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.white)
                 
                 Spacer()
                 
                 // Campo de E-mail
                 TextField("E-mail", text: $email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.emailAddress)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .shadow(radius: 5)
                     .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
                     .padding(.horizontal, 30)
                 
                 // Campo de Senha
                 SecureField("Senha", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .shadow(radius: 5)
                     .padding(.horizontal, 30)
                 
                 // Botão de Login
                 Button(action: {
-                    // Função para login com email/senha
                     loginWithEmail(email: email, password: password)
                 }) {
                     Text("Entrar")
+                        .textCase(.lowercase)
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .padding(.horizontal, 30)
+                        .background(Color.laranja)
+                        .cornerRadius(8)
                         .shadow(radius: 5)
+                        .padding(.horizontal, 30)
                 }
                 
                 // Botões de Login Social
-                VStack(spacing: 15) {
+                VStack(spacing: 12) {
                     Button(action: {
-                        // Função para login com Google
                         loginWithGoogle()
                     }) {
                         HStack {
                             Image(systemName: "globe")
                                 .foregroundColor(.white)
                             Text("Entrar com Google")
+                                .textCase(.lowercase)
                                 .foregroundColor(.white)
                                 .font(.headline)
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.red)
-                        .cornerRadius(10)
+                        .background(Color.azul)
+                        .cornerRadius(8)
                         .shadow(radius: 5)
                     }
                     .padding(.horizontal, 30)
                     
                     Button(action: {
-                        // Função para login com Apple
                         loginWithApple()
                     }) {
                         HStack {
                             Image(systemName: "applelogo")
                                 .foregroundColor(.white)
                             Text("Entrar com Apple")
+                                .textCase(.lowercase)
                                 .foregroundColor(.white)
                                 .font(.headline)
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.black)
-                        .cornerRadius(10)
+                        .background(Color.laranja)
+                        .cornerRadius(8)
                         .shadow(radius: 5)
                     }
                     .padding(.horizontal, 30)
+                }
+                
+                // Novo botão para entrar como convidado (azul e lowercase)
+                Button(action: {
+                    loginAsGuest()
+                }) {
+                    Text("entrar como convidado")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.azul)
+                        .cornerRadius(8)
+                        .shadow(radius: 5)
+                        .padding(.horizontal, 30)
                 }
                 
                 Spacer()
@@ -109,9 +131,7 @@ struct LoginView: View {
                 }
                 .padding(.bottom, 20)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [Color("Beige"), Color("LightBlue")]),
-                                       startPoint: .top,
-                                       endPoint: .bottom))
+            .background(Color("amareloEnergizante")) // Cor de fundo
             .ignoresSafeArea()
         }
     }
@@ -128,16 +148,21 @@ struct LoginView: View {
     private func loginWithApple() {
         print("Login com Apple")
     }
-}
 
-// Substitua por sua tela de cadastro
-struct RegisterView: View {
-    var body: some View {
-        Text("Tela de Cadastro")
-            .font(.largeTitle)
-            .fontWeight(.bold)
+    // Função para login como convidado
+    private func loginAsGuest() {
+        print("Login como convidado")
     }
 }
+
+//// Substitua por sua tela de cadastro
+//struct RegisterView: View {
+//    var body: some View {
+//        Text("Tela de Cadastro")
+//            .font(.largeTitle)
+//            .fontWeight(.bold)
+//    }
+//}
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

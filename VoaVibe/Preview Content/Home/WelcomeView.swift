@@ -12,7 +12,7 @@ struct WelcomeView: View {
         NavigationView {
             ZStack {
                 // Defina o fundo de toda a tela com a cor bege amarelado
-                Color(red: 0.98, green: 0.92, blue: 0.74) // Tom de bege amarelado
+                Color(.amareloEnergizante)
                     .edgesIgnoringSafeArea(.all) // Faz com que a cor ocupe toda a tela, incluindo a área segura
 
                 VStack(spacing: 40) {
@@ -21,13 +21,13 @@ struct WelcomeView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 120, height: 120)
-                        .foregroundColor(Color("azulVibrante").opacity(30.0))  // Aumentando a opacidade do azul
+                        .foregroundColor(Color("azul").opacity(2.0))  // Aumentando a opacidade do azul
                     
                     // Slogan
                     Text("Explore o mundo com o VoaVibe")
                         .font(.title)
                         .fontWeight(.semibold)
-                        .foregroundColor(Color("azulVibrante").opacity(0.9))  // Aumentando a opacidade do azul
+                        .foregroundColor(Color("azul").opacity(1.0))  // Aumentando a opacidade do azul
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 30)
                     
@@ -38,7 +38,7 @@ struct WelcomeView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color("azulVibrante").opacity(0.9))  // Aumentando a opacidade do azul
+                            .background(Color("azul").opacity(1.0))  // Aumentando a opacidade do azul
                             .cornerRadius(10)
                             .shadow(radius: 5)
                     }
