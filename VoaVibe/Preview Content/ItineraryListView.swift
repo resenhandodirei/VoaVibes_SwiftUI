@@ -38,7 +38,7 @@ struct ItineraryListView: View {
                         VStack(alignment: .leading) {
                             Text(itinerary.destination)
                                 .font(.headline)
-                                .foregroundColor(.azul)
+                                .foregroundColor(.amareloEnergizante)
                             Text("De \(formattedDate(itinerary.startDate)) até \(formattedDate(itinerary.endDate))")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)

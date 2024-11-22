@@ -117,7 +117,7 @@ struct PlanItineraryView: View {
                 }
                 .padding()
             }
-            .background(Color("amareloEnergizante").opacity(0.25)) // Fundo amarelo energizante com leve transparência
+            .background(Color("amareloEnergizante").opacity(0.30)) // Fundo amarelo energizante com leve transparência
             .ignoresSafeArea()
         }
     }

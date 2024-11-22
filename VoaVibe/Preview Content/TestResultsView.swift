@@ -78,9 +78,7 @@ struct TestResultsView: View {
                     .padding(.horizontal)
             }
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color("begeAmarelado")]),
-                                   startPoint: .top,
-                                   endPoint: .bottom))
+        .background(Color("amareloEnergizante").opacity(0.30)) // Fundo amarelo energizante com leve transparência
         .ignoresSafeArea()
     }
 }
