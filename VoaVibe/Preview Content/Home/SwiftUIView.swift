@@ -14,7 +14,7 @@ struct FavoritesView: View {
         let name: String
         let description: String
         let imageName: String
-        let type: String // "Destino" ou "Roteiro"
+        let type: String
     }
     
     // Dados simulados de favoritos
@@ -28,7 +28,6 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Cabeçalho
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Favoritos")
                         .font(.largeTitle)
@@ -41,7 +40,6 @@ struct FavoritesView: View {
                 .padding(.horizontal)
                 .padding(.top, 16)
                 
-                // Lista de Favoritos
                 List {
                     ForEach(favoriteItems) { item in
                         FavoriteRow(item: item)
@@ -102,7 +100,6 @@ struct FavoriteRow: View {
     }
 }
 
-// Preview
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()

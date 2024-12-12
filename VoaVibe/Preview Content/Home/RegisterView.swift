@@ -22,51 +22,43 @@ struct RegisterView: View {
         VStack(spacing: 20) {
             Spacer()
             
-            // Título
             Text("Crie sua conta no VoaVibe")
                 .font(.title)
                 .fontWeight(.semibold)
-                .foregroundColor(Color("azul")) // Cor para o título
+                .foregroundColor(Color("azul"))
                 .multilineTextAlignment(.center)
-                .lineLimit(2) // Limita a linha do título para evitar corte
-                .padding(.horizontal, 30) // Garantir que o título tenha espaço suficiente
-                .minimumScaleFactor(0.5) // Diminui o tamanho da fonte, se necessário, para ajustar ao espaço
+                .lineLimit(2)
+                .padding(.horizontal, 30)
+                .minimumScaleFactor(0.5)
             
-            // Formulário
             VStack(spacing: 15) {
-                // Campo de Nome
                 TextField("Nome", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.words)
                     .padding(.horizontal, 30)
                 
-                // Campo de E-mail
                 TextField("E-mail", text: $email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
                     .padding(.horizontal, 30)
                 
-                // Campo de Senha
                 SecureField("Senha", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 30)
                 
-                // Campo de Confirmar Senha
                 SecureField("Confirmar Senha", text: $confirmPassword)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 30)
                 
-                // Melhorando a escolha de preferências com botões personalizados
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Preferência de viagem:")
                         .font(.headline)
-                        .foregroundColor(Color(.white)) // Cor laranja para o texto
+                        .foregroundColor(Color(.white))
                         .padding(.horizontal, 30)
-                        .lineLimit(1) // Evita que o texto do título quebre em várias linhas
-                        .minimumScaleFactor(0.8) // Ajuste de escala do título se for longo
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
                     
-                    // ScrollView horizontal com botões para cada opção
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             ForEach(preferences, id: \.self) { preference in
@@ -76,9 +68,9 @@ struct RegisterView: View {
                                     Text(preference)
                                         .fontWeight(.medium)
                                         .foregroundColor(selectedPreference == preference ? .white : Color("azul"))
-                                        .padding(.horizontal, 16) // Ajuste no padding horizontal
-                                        .padding(.vertical, 12) // Ajuste no padding vertical
-                                        .frame(minWidth: 140, maxWidth: .infinity, minHeight: 50) // Largura mínima e altura para evitar corte
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 12)
+                                        .frame(minWidth: 140, maxWidth: .infinity, minHeight: 50)
                                         .background(selectedPreference == preference ? Color("laranja") : Color.white)
                                         .cornerRadius(25)
                                         .shadow(color: selectedPreference == preference ? Color("azul").opacity(0.5) : Color.clear, radius: 10, x: 0, y: 5)
@@ -86,8 +78,8 @@ struct RegisterView: View {
                                             RoundedRectangle(cornerRadius: 25)
                                                 .stroke(Color("azul"), lineWidth: selectedPreference == preference ? 0 : 2)
                                         )
-                                        .scaleEffect(selectedPreference == preference ? 1.05 : 1) // Animação de escala ao selecionar
-                                        .animation(.spring(), value: selectedPreference) // Animação suave
+                                        .scaleEffect(selectedPreference == preference ? 1.05 : 1)
+                                        .animation(.spring(), value: selectedPreference)
                                 }
                             }
                         }
@@ -96,7 +88,6 @@ struct RegisterView: View {
                 }
             }
             
-            // Botão de Cadastro
             Button(action: handleRegistration) {
                 Text("Cadastrar")
                     .textCase(.lowercase)
@@ -104,7 +95,7 @@ struct RegisterView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color("azul")) // Cor azul para o botão
+                    .background(Color("azul"))
                     .cornerRadius(10)
                     .padding(.horizontal, 30)
                     .shadow(radius: 5)
@@ -114,7 +105,7 @@ struct RegisterView: View {
         }
         .background(LinearGradient(gradient: Gradient(colors: [Color("amareloEnergizante")]),
                                    startPoint: .top,
-                                   endPoint: .bottom)) // Fundo amarelo energizante
+                                   endPoint: .bottom))
         .ignoresSafeArea()
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Cadastro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))

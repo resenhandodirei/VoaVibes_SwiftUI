@@ -16,7 +16,7 @@ struct ExploreCommunityView: View {
         let date: String
         var likes: Int
         var comments: Int
-        var isLiked: Bool // Adicionado para controlar o estado de curtida
+        var isLiked: Bool
     }
     
     @State private var posts: [Post] = [
@@ -53,14 +53,13 @@ struct ExploreCommunityView: View {
                 
                 List {
                     ForEach(posts) { post in
-                        VStack(alignment: .leading, spacing: 12) { // Espaçamento aumentado entre mensagens
-                            // Header do Post
+                        VStack(alignment: .leading, spacing: 12) {
                             HStack {
                                 Image(systemName: post.avatar)
                                     .resizable()
                                     .frame(width: 40, height: 40)
                                     .clipShape(Circle())
-                                    .foregroundColor(Color("amareloEnergizante")) // Garantindo que o ícone de avatar seja amareloEnergizante
+                                    .foregroundColor(Color("amareloEnergizante"))
                                 
                                 VStack(alignment: .leading) {
                                     Text(post.username)
@@ -71,18 +70,16 @@ struct ExploreCommunityView: View {
                                 }
                             }
                             
-                            // Conteúdo do Post
                             Text(post.content)
                                 .font(.body)
                                 .foregroundColor(.primary)
                             
-                            // Ações (Curtir, Comentar)
                             HStack {
                                 Button(action: {
                                     likePost(post)
                                 }) {
                                     Label("\(post.likes)", systemImage: "hand.thumbsup")
-                                        .foregroundColor(post.isLiked ? Color("amareloEnergizante") : .secondary) // Alterar para amareloEnergizante se curtido
+                                        .foregroundColor(post.isLiked ? Color("amareloEnergizante") : .secondary)
                                 }
                                 .buttonStyle(BorderlessButtonStyle())
                                 
@@ -98,8 +95,8 @@ struct ExploreCommunityView: View {
                             .foregroundColor(.secondary)
                             .padding(.top, 4)
                         }
-                        .padding(.vertical, 12) // Aumentando o espaçamento vertical entre os posts
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 5)) // Caixa branca com bordas arredondadas
+                        .padding(.vertical, 12)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 5))
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
@@ -108,7 +105,7 @@ struct ExploreCommunityView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: addNewPost) {
                             Label("Novo Post", systemImage: "plus")
-                                .foregroundColor(Color("amareloEnergizante")) // Garantindo que o ícone de adicionar post seja amareloEnergizante
+                                .foregroundColor(Color("amareloEnergizante")) 
                         }
                     }
                 }

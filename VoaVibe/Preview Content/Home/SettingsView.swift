@@ -24,13 +24,11 @@ struct SettingsView: View {
                     .foregroundStyle(.azul)
                 
                 Form {
-                    // Notificações
                     Section(header: Text("Notificações")) {
                         Toggle("Habilitar notificações", isOn: $notificationsEnabled)
-                            .accentColor(Color("amareloEnergizante")) // Usando a cor personalizada
+                            .accentColor(Color("amareloEnergizante"))
                     }
 
-                    // Temas
                     Section(header: Text("Tema do aplicativo")) {
                         Picker("Selecione um tema", selection: $selectedTheme) {
                             ForEach(themes, id: \.self) { theme in
@@ -39,7 +37,6 @@ struct SettingsView: View {
                         }
                     }
 
-                    // Preferências
                     Section(header: Text("Preferências")) {
                         Button(action: {
                             isPreferencesPresented.toggle()
@@ -56,7 +53,6 @@ struct SettingsView: View {
                         }
                     }
 
-                    // Informações do App
                     Section(header: Text("Sobre")) {
                         NavigationLink(destination: AboutView()) {
                             Text("Sobre o aplicativo")

@@ -17,7 +17,6 @@ struct NotificationsView: View {
         let category: String
     }
     
-    // Lista de notificações (dados simulados)
     let notifications: [Notification] = [
         Notification(title: "Promoção de Verão!", description: "Descontos de até 30% em pacotes para destinos tropicais.", date: "Hoje", category: "Promoção"),
         Notification(title: "Lembrete de Viagem", description: "Sua viagem para Bali começa em 2 dias. Não se esqueça de revisar o checklist.", date: "Ontem", category: "Lembrete"),
@@ -28,7 +27,6 @@ struct NotificationsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Cabeçalho da tela
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Notificações")
                         .font(.largeTitle)
@@ -41,9 +39,7 @@ struct NotificationsView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 16)
-                
-                // Lista de notificações
-                List(notifications) { notification in
+                                List(notifications) { notification in
                     NotificationRow(notification: notification)
                 }
                 .listStyle(InsetGroupedListStyle())
@@ -106,7 +102,6 @@ struct NotificationRow: View {
     }
 }
 
-// Preview
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()

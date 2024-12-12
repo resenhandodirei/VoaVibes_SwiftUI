@@ -60,7 +60,6 @@ struct HomeDashboardView: View {
                     }
                     .padding(.horizontal)
 
-                    // Seção de gastos recentes
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Gastos Recentes")
                             .font(.headline)
@@ -87,7 +86,6 @@ struct HomeDashboardView: View {
                     }
                     .padding(.horizontal)
 
-                    // Seção de sugestões de viagens
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Sugestões de Viagens")
                             .font(.headline)

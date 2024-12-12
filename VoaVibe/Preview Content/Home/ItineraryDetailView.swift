@@ -30,10 +30,9 @@ struct ItineraryDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                // Destino e datas
                 Text(destination)
                     .font(.largeTitle)
-                    .foregroundColor(.azul) // Alterado de .azul para .blue
+                    .foregroundColor(.azul)
                     .fontWeight(.bold)
                     .padding(.bottom, 4)
                     .padding(.horizontal, 16)
@@ -45,7 +44,6 @@ struct ItineraryDetailView: View {
 
                 Divider()
 
-                // Atividades
                 Text("Atividades")
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -72,10 +70,10 @@ struct ItineraryDetailView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    .padding() // Adiciona padding dentro da caixa
-                    .background(Color.yellow.opacity(0.30)) // Fundo da caixa
+                    .padding()
+                    .background(Color.yellow.opacity(0.30))
                     .cornerRadius(8)
-                    .padding(.horizontal, 16) // Afasta a caixa das margens laterais
+                    .padding(.horizontal, 16) 
                 }
             }
             .padding(.vertical)

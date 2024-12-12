@@ -28,7 +28,6 @@ struct AboutAppView: View {
                 
                 Divider()
                 
-                // Informações do App
                 VStack(alignment: .leading, spacing: 10) {
                     Text("📱 Versão do App")
                         .font(.headline)
@@ -43,7 +42,6 @@ struct AboutAppView: View {
                 
                 Divider()
                 
-                // Informações da Equipe
                 VStack(alignment: .leading, spacing: 10) {
                     Text("👩‍💻 Equipe de Desenvolvimento")
                         .font(.headline)
@@ -58,7 +56,6 @@ struct AboutAppView: View {
                 
                 Divider()
                 
-                // Política de Privacidade
                 VStack(alignment: .leading, spacing: 10) {
                     Text("🔒 Política de Privacidade")
                         .font(.headline)
@@ -75,11 +72,11 @@ struct AboutAppView: View {
                             .font(.body)
                             .fontWeight(.semibold)
                             .padding()
-                            .background(Color("amareloEnergizante")) // Aplique sua cor personalizada
+                            .background(Color("amareloEnergizante"))
                             .foregroundColor(.white)
-                            .cornerRadius(10) // Arredonda as bordas
-                            .frame(maxWidth: .infinity) // Faz o botão ocupar toda a largura disponível
-                            .shadow(radius: 5) // Adiciona uma sombra suave
+                            .cornerRadius(10)
+                            .frame(maxWidth: .infinity)
+                            .shadow(radius: 5)
                     }
                     .padding(.top, 10)
                 }

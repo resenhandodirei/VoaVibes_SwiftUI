@@ -27,10 +27,9 @@ struct ItineraryListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Texto azul sem navigationTitle
                 Text("Meus Roteiros")
                     .font(.title)
-                    .foregroundColor(.azul) // Cor azul aplicada diretamente aqui
+                    .foregroundColor(.azul) 
                     .fontWeight(.semibold)
 
                 List {

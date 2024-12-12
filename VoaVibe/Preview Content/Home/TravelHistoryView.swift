@@ -33,14 +33,12 @@ struct TravelHistoryView: View {
                     .foregroundColor(.azul)
                 
                 if travelHistory.isEmpty {
-                    // Mensagem caso não haja histórico de viagens
                     Text("Você ainda não possui viagens registradas.")
                         .font(.headline)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
                         .padding()
                 } else {
-                    // Lista de viagens passadas
                     List(travelHistory) { travel in
                         NavigationLink(destination: TravelDetailView(travel: travel)) {
                             VStack(alignment: .leading, spacing: 4) {

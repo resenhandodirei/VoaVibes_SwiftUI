@@ -20,14 +20,12 @@ struct PlanItineraryView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Spacer()
 
-                    // Título do Roteiro
                     Text("Planejar Roteiro")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.azul)
                         .padding(.top, 20)
                     
-                    // Campo para escolher o destino
                     VStack(alignment: .leading) {
                         Text("Destino")
                             .font(.headline)
@@ -38,7 +36,6 @@ struct PlanItineraryView: View {
                             .background(RoundedRectangle(cornerRadius: 10).stroke(Color.azul, lineWidth: 2))
                     }
 
-                    // Escolha de datas
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Datas")
                             .font(.headline)
@@ -66,7 +63,6 @@ struct PlanItineraryView: View {
                         }
                     }
 
-                    // Adicionar atividades
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Atividades Planejadas")
                             .font(.headline)
@@ -82,7 +78,6 @@ struct PlanItineraryView: View {
                             }
                         }
 
-                        // Lista de atividades
                         if !activities.isEmpty {
                             ForEach(activities, id: \.self) { activity in
                                 HStack {
@@ -103,7 +98,6 @@ struct PlanItineraryView: View {
                         }
                     }
 
-                    // Botão para salvar o roteiro
                     Button(action: saveItinerary) {
                         Text("Salvar Roteiro")
                             .font(.headline)
@@ -117,7 +111,7 @@ struct PlanItineraryView: View {
                 }
                 .padding()
             }
-            .background(Color("amareloEnergizante").opacity(0.30)) // Fundo amarelo energizante com leve transparência
+            .background(Color("amareloEnergizante").opacity(0.30))
             .ignoresSafeArea()
         }
     }

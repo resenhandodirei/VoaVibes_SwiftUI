@@ -32,11 +32,9 @@ struct DestinationReviewView: View {
                 
                 Form {
                     Section(header: Text("Avalie um Destino").foregroundColor(.amareloEnergizante)) {
-                        // Campo de entrada para o destino
                         TextField("Destino visitado", text: $destination)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                         
-                        // Seletor de avaliação (1 a 5 estrelas)
                         HStack {
                             Text("Avaliação:")
                                 .foregroundColor(.amareloEnergizante)
@@ -51,7 +49,6 @@ struct DestinationReviewView: View {
                         }
                         .padding(.vertical, 8)
                         
-                        // Campo para comentários
                         TextEditor(text: $comment)
                             .frame(height: 100)
                             .overlay(
@@ -61,7 +58,6 @@ struct DestinationReviewView: View {
                             .padding(.vertical, 8)
                     }
                     
-                    // Botão para salvar avaliação
                     Button(action: addReview) {
                         Text("Salvar Avaliação")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -74,7 +70,6 @@ struct DestinationReviewView: View {
                 }
                 .listStyle(InsetGroupedListStyle())
                 
-                // Lista de avaliações existentes
                 if reviews.isEmpty {
                     Text("Nenhuma avaliação registrada ainda.")
                         .foregroundColor(.gray)

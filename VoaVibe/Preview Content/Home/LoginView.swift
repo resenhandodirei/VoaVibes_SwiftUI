@@ -17,21 +17,18 @@ struct LoginView: View {
             VStack(spacing: 16) {
                 Spacer()
                 
-                // Título
                 Text("Bem-vindo ao VoaVibe")
                     .font(.title)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.azul)
                 
-                // Subtítulo
                 Text("Faça login para planejar suas viagens")
                     .font(.subheadline)
                     .foregroundColor(.white)
                 
                 Spacer()
                 
-                // Campo de E-mail
                 TextField("E-mail", text: $email)
                     .padding()
                     .background(Color.white)
@@ -41,7 +38,6 @@ struct LoginView: View {
                     .keyboardType(.emailAddress)
                     .padding(.horizontal, 30)
                 
-                // Campo de Senha
                 SecureField("Senha", text: $password)
                     .padding()
                     .background(Color.white)
@@ -49,7 +45,6 @@ struct LoginView: View {
                     .shadow(radius: 5)
                     .padding(.horizontal, 30)
                 
-                // Botão de Login
                 Button(action: {
                     loginWithEmail(email: email, password: password)
                 }) {
@@ -65,7 +60,6 @@ struct LoginView: View {
                         .padding(.horizontal, 30)
                 }
                 
-                // Botões de Login Social
                 VStack(spacing: 12) {
                     Button(action: {
                         loginWithGoogle()
@@ -106,7 +100,6 @@ struct LoginView: View {
                     .padding(.horizontal, 30)
                 }
                 
-                // Novo botão para entrar como convidado (azul e lowercase)
                 Button(action: {
                     loginAsGuest()
                 }) {
@@ -123,7 +116,6 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                // Link para Registro
                 NavigationLink(destination: RegisterView()) {
                     Text("Não tem uma conta? Cadastre-se")
                         .font(.footnote)
@@ -131,7 +123,7 @@ struct LoginView: View {
                 }
                 .padding(.bottom, 20)
             }
-            .background(Color("amareloEnergizante")) // Cor de fundo
+            .background(Color("amareloEnergizante")) 
             .ignoresSafeArea()
         }
     }

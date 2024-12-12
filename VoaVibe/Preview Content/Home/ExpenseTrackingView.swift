@@ -78,7 +78,6 @@ struct ExpenseTrackingView: View {
                     .onDelete(perform: deleteExpense)
                 }
                 
-                // Botão para adicionar nova despesa
                 Button(action: {
                     showingAddExpense.toggle()
                 }) {

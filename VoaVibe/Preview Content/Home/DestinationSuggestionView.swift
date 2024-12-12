@@ -53,16 +53,15 @@ struct DestinationSuggestionView: View {
                             
                             Spacer()
                             
-                            // Ícone de seta com apenas a cor amarela
                             Image(systemName: "chevron.right")
-                                .foregroundColor(Color("amareloEnergizante")) // Cor amarela personalizada
-                                .font(.title2) // Ajuste do tamanho do ícone
+                                .foregroundColor(Color("amareloEnergizante"))
+                                .font(.title2)
                         }
-                        .padding(.vertical, 10) // Ajustando o espaçamento entre os itens
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 5)) // Caixa branca com bordas arredondadas
+                        .padding(.vertical, 10)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 5))
                     }
                 }
-                .listStyle(PlainListStyle()) // Para não aparecerem os estilos padrão de lista do iOS
+                .listStyle(PlainListStyle()) 
             }
         }
     }

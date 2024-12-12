@@ -17,7 +17,6 @@ struct UserProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Foto do usuário
                 VStack {
                     if let image = selectedImage {
                         Image(uiImage: image)
@@ -43,7 +42,6 @@ struct UserProfileView: View {
                 }
                 .padding(.top)
 
-                // Nome do usuário
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Text("Nome:")
@@ -59,7 +57,6 @@ struct UserProfileView: View {
                         }
                     }
 
-                    // Interesses do usuário
                     VStack(alignment: .leading) {
                         Text("Interesses:")
                             .font(.headline)
@@ -88,7 +85,6 @@ struct UserProfileView: View {
 
                 Spacer()
 
-                // Botão Editar/Salvar
                 Button(isEditing ? "Salvar" : "Editar Perfil") {
                     isEditing.toggle()
                 }

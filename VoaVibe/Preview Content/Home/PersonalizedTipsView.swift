@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PersonalizedTipsView: View {
-    // Modelo para dicas
     struct Tip: Identifiable {
         let id = UUID()
         let title: String
@@ -28,7 +27,6 @@ struct PersonalizedTipsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Header com mensagem personalizada
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Dicas Personalizadas")
                         .font(.largeTitle)
@@ -42,11 +40,9 @@ struct PersonalizedTipsView: View {
                 .padding(.horizontal)
                 .padding(.top, 16)
                 
-                // Lista de dicas
                 List(tips) { tip in
                     NavigationLink(destination: TipDetailView(tip: tip)) {
                         HStack {
-                            // Ícone por categoria
                             Image(systemName: iconForCategory(tip.category))
                                 .foregroundColor(colorForCategory(tip.category))
                                 .frame(width: 40, height: 40)
@@ -97,21 +93,18 @@ struct PersonalizedTipsView: View {
     }
 }
 
-// Tela de Detalhes da Dica
 struct TipDetailView: View {
     let tip: PersonalizedTipsView.Tip
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                // Título da dica
                 Text(tip.title)
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.azul)
 
                 
-                // Categoria e descrição detalhada
                 Text("Categoria: \(tip.category)")
                     .font(.subheadline)
                     .foregroundColor(.amareloEnergizante)

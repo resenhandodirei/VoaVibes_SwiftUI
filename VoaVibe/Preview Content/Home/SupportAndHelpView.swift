@@ -24,7 +24,6 @@ struct SupportAndHelpView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Cabeçalho
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Suporte e Ajuda")
                         .font(.largeTitle)
@@ -38,7 +37,6 @@ struct SupportAndHelpView: View {
                 .padding(.horizontal)
                 .padding(.top, 16)
                 
-                // Lista de FAQ
                 List {
                     Section(header: Text("Perguntas Frequentes")) {
                         ForEach(faqItems) { item in
@@ -51,7 +49,6 @@ struct SupportAndHelpView: View {
                         }
                     }
                     
-                    // Seção de Tutoriais
                     Section(header: Text("Tutoriais")) {
                         NavigationLink(destination: TutorialView()) {
                             HStack {
@@ -63,7 +60,6 @@ struct SupportAndHelpView: View {
                         }
                     }
                     
-                    // Seção de Chat de Suporte
                     Section(header: Text("Chat de Suporte")) {
                         Button(action: openChat) {
                             HStack {
@@ -88,7 +84,6 @@ struct SupportAndHelpView: View {
     }
 }
 
-// Tela de Tutoriais
 struct TutorialView: View {
     var body: some View {
         ScrollView {
@@ -122,7 +117,6 @@ struct TutorialView: View {
     }
 }
 
-// Preview
 struct SupportAndHelpView_Previews: PreviewProvider {
     static var previews: some View {
         SupportAndHelpView()
