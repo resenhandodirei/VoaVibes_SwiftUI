@@ -81,7 +81,5 @@ Este projeto está sob a licença MIT - veja o arquivo LICENSE para detalhes.
 ---
 
 ## 📞 Contato
-
-Larissa Martins Correa  
 [GitHub](https://github.com/resenhandodirei)  
 [LinkedIn](https://linkedin.com/in/resenhandodirei)
